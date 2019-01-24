@@ -40,6 +40,7 @@ class GameObject{
   */
   class CharacterStats extends GameObject{
     constructor (charStuff){
+        super(charStuff);
         this.healthPoints = charStuff.healthPoints;
         this.name = charStuff.name;
         }
@@ -60,15 +61,16 @@ class GameObject{
   */
   class Humanoid extends CharacterStats{
       constructor(humStuff){
+          super(humStuff);
         this.team = humStuff.team;
         this.weapons = humStuff.weapons;
         this.language = humStuff.language;
       }
       greet(){
-      return `${this.name} offers a greeting in ${this.language}.`;
-    }
+      return ( `${this.name} offers a greeting in ${this.language}.`);
+      }
   
-    
+    }
   
   /*
     * Inheritance chain: GameObject -> CharacterStats -> Humanoid
@@ -90,9 +92,9 @@ class GameObject{
       name: 'Bruce',
       team: 'Mage Guild',
       weapons: [
-        'Staff of Shamalama',
+        'Staff of Shamalama'
       ],
-      language: 'Common Tongue',
+      language: 'Common Tongue'
     });
   
     const swordsman = new Humanoid({
@@ -109,7 +111,7 @@ class GameObject{
         'Giant Sword',
         'Shield',
       ],
-      language: 'Common Tongue',
+      language: 'Common Tongue'
     });
   
     const archer = new Humanoid({
@@ -126,7 +128,7 @@ class GameObject{
         'Bow',
         'Dagger',
       ],
-      language: 'Elvish',
+      language: 'Elvish'
     });
   
     console.log(mage.createdAt); // Today's date
@@ -136,7 +138,7 @@ class GameObject{
     console.log(swordsman.team); // The Round Table
     console.log(mage.weapons); // Staff of Shamalama
     console.log(archer.language); // Elvish
-    console.log(swordsman.greet()); // Lilith offers a greeting in Elvish.
+    console.log(archer.greet()); // Lilith offers a greeting in Elvish.
     console.log(mage.takeDamage()); // Bruce took damage.
     console.log(swordsman.destroy()); // Sir Mustachio was removed from the game.
   
