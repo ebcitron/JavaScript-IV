@@ -35,10 +35,129 @@ class Instructor extends Person{
     }
 }
 
-class Students extends Person{
+class Student extends Person{
     constructor(stuAttributes){
         super(stuAttributes);
         this.previousBackground = stuAttributes.previousBackground;
         this.className = stuAttributes.className;
+        this.favSubjects = stuAttributes.favSubjects;
+        }
+
+
+    listSubjects(){
+        const fav = this.favSubjects;
+        fav.forEach( function(element){
+            console.log(element);
+            
+        });
+    }
+    PRAssignment(subject){
+        console.log(`${this.name} has submitted a PR for ${subject}`);
+    }
+    sprintChallange(subject){
+        console.log(`${this.name} has begun sprint challange on ${subject}`);
     }
 }
+
+
+
+
+class ProjectManager extends Instructor{
+    constructor(pmAttributes){
+        super(pmAttributes);
+        this.gradClassName = pmAttributes.gradClassName;
+        this.favInstructor = pmAttributes.favInstructor;
+    }
+    standUp(slackChan){
+        console.log(`${this.name} announces to ${slackChan}, @channel standy times!`);
+    }
+    debugsCode(student, subject){
+        console.log(`${this.name} debugs ${student}'s code on ${subject}`);
+    }
+}
+
+
+
+
+
+const fred = new Instructor({
+    name: 'Fred',
+    location: 'Bedrock',
+    age: 37,
+    gender: 'male',
+    favLanguage: 'JavaScript',
+    specialty: 'Front-end',
+    catchPhrase: `Don't forget the homies`
+  });
+  
+const wilma = new Instructor({
+    name: 'wilma',
+    location: 'Bedrock',
+    age: 30,
+    gender: 'female',
+    favLanguage: 'Java',
+    specialty: 'Front-end',
+    catchPhrase: `Don't forget the dinosaurs... rip`
+  });
+  
+const freddy = new Student({
+    name: 'Freddy',
+    location: 'Bedrock',
+    age: 15,
+    gender: 'male',
+    favSubjects: ['html', 'python', 'Scriptin'],
+    className: 'Front and Back end',
+    previousBackground: "bedrock dealer"
+  });
+  
+const wilmer = new Student({
+    name: 'wilmer',
+    location: 'South-Bedrock',
+    age: 26,
+    gender: 'male?',
+    favSubjects: ['scripting','css','python', 'Rock-Speak'],
+   className: 'CYP2D6',
+    previousBackground: `Ran a taxi... literally`
+  });
+  
+  const eli = new ProjectManager({
+    name: 'Eli',
+    location: 'Chiraq',
+    age: 23,
+    gender: 'male',
+    favLanguage: 'Python',
+    specialty: 'Social Engineering',
+    catchPhrase: 'watiyatalkinabeet...',
+    gradClassName: 'web17!',
+    favInstructor: "Josh"
+  });
+  
+  const ShEli = new ProjectManager({
+    name: 'ShEli',
+    location: 'Shiraq',
+    age: 32,
+    gender: '"female"',
+    favLanguage: 'Japanese',
+    specialty: 'Scripting',
+    catchPhrase: 'watiyatalkintome...',
+    gradClassName: 'web17!',
+    favInstructor: "hsoJ"
+  });
+
+
+  console.log(fred.favLanguage);
+console.log(eli.favLanguage);
+eli.speak();
+ ShEli.speak();
+
+ wilmer.speak();
+ fred.speak();
+
+ freddy.listSubjects();
+
+freddy.sprintChallange('math');
+
+
+eli.debugsCode("freddy","coding");
+
+eli.standUp('666');
