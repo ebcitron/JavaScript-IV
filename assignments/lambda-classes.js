@@ -9,6 +9,7 @@ class Person{
         this.age = attributes.age;
         this.location = attributes.location;
         this.gender = attributes.gender;
+      
     }
     
     speak(){
@@ -25,15 +26,28 @@ class Instructor extends Person{
         this.specialty = insAttributes.specialty;
         this.favLanguage = insAttributes.favLanguage;
         this.catchPhrase = insAttributes.catchPhrase;
+        this.grade = insAttributes.grade;
     }
 
     demo(){
         console.log(`Today we are learning about ${this.subject}`);
         }
     grade(){
-        console.log(`${this.name} receives a perfect score on ${this.subject}`)
+        console.log(`${this.name} receives a perfect score on ${this.subject}`);
     }
+    randomPoint(){
+        console.log(`${this.name} has a grade of ${this.grade} %`)
+        
+    }
+    
 }
+// function MakeGrade(){
+//     ogGrade=(Math.random*100);
+//     console.log(ogGrade);
+//      return ogGrade;
+// }
+
+
 
 class Student extends Person{
     constructor(stuAttributes){
@@ -41,6 +55,7 @@ class Student extends Person{
         this.previousBackground = stuAttributes.previousBackground;
         this.className = stuAttributes.className;
         this.favSubjects = stuAttributes.favSubjects;
+        this.grade = stuAttributes.grade;
         }
 
 
@@ -48,7 +63,7 @@ class Student extends Person{
         const fav = this.favSubjects;
         fav.forEach( function(element){
             console.log(element);
-            
+            return element[0];
         });
     }
     PRAssignment(subject){
@@ -75,7 +90,6 @@ class ProjectManager extends Instructor{
         console.log(`${this.name} debugs ${student}'s code on ${subject}`);
     }
 }
-
 
 
 
@@ -107,7 +121,9 @@ const freddy = new Student({
     gender: 'male',
     favSubjects: ['html', 'python', 'Scriptin'],
     className: 'Front and Back end',
-    previousBackground: "bedrock dealer"
+    previousBackground: "bedrock dealer",
+    grade: 95
+    
   });
   
 const wilmer = new Student({
@@ -161,3 +177,5 @@ freddy.sprintChallange('math');
 eli.debugsCode("freddy","coding");
 
 eli.standUp('666');
+
+fred.grade();
